@@ -10,7 +10,7 @@
 @define-color cc_fg        @on_surface;              /* text */
 @define-color cc_muted     @on_surface_variant;      /* headers */
 @define-color cc_card      @surface_container_high;  /* notification cards */
-@define-color cc_track     @surface_variant;         /* slider/switch off track */
+@define-color cc_track     @surface_container_high;  /* slider/switch off track */
 
 /* Unified accent (Catppuccin Blue) */
 @define-color accent       #89b4fa;
