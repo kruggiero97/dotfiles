@@ -1,0 +1,16 @@
+/* -----------------------------------------------------
+ * Catppuccin Mocha (no pywal)
+ * ----------------------------------------------------- */
+
+@define-color backgroundlight #313244; /* surface0 */
+@define-color backgrounddark  #1e1e2e; /* base */
+@define-color workspacesbackground1 #45475a; /* surface1 */
+@define-color workspacesbackground2 #1e1e2e; /* base */
+@define-color bordercolor #cba6f7; /* surface2 */
+
+@define-color textcolor1 #cdd6f4; /* text */
+@define-color textcolor2 #bac2de; /* subtext0 */
+@define-color textcolor3 #a6adc8; /* subtext1 */
+@define-color iconcolor  #cdd6f4; /* text */
+
+@import '../style.css';

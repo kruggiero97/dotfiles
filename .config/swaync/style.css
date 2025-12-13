@@ -1,44 +1,129 @@
-/* Colors */
 
-@import 'colors.css';
-@define-color background @background;
-@define-color groupbackground @background;
-@define-color buttoncolor @secondary;
-@define-color bordercolor @primary;
-@define-color fontcolor @on_surface;
+@import "colors.css";
 
+/* =========================================================
+ * Color wiring (NO self-references)
+ * ========================================================= */
+
+/* Pull from your Matugen colors.css */
+@define-color cc_bg        @surface;                 /* panel background */
+@define-color cc_fg        @on_surface;              /* text */
+@define-color cc_muted     @on_surface_variant;      /* headers */
+@define-color cc_card      @surface_container_high;  /* notification cards */
+@define-color cc_track     @surface_variant;         /* slider/switch off track */
+
+/* Unified accent (Catppuccin Blue) */
+@define-color accent       #89b4fa;
+@define-color accent_hover #74c7ec; /* Catppuccin sapphire */
+@define-color accent_text  #1e1e2e;
+
+/* =========================================================
+ * Global
+ * ========================================================= */
 * {
     font-family: "Fira Sans Semibold";
 }
 
-/* Control Center */
-
+/* =========================================================
+ * Control Center
+ * ========================================================= */
 .control-center {
-    border: 3px solid @bordercolor;
+    background: @cc_bg;
+    color: @cc_fg;
+
+    border: 3px solid @accent;
+    border-radius: 16px;
     padding: 10px;
 }
 
+/* =========================================================
+ * Buttons (buttons-grid)
+ * ========================================================= */
 button {
     border: 0px;
     min-width: 35px;
-    background: @buttoncolor;
-    color: @on_secondary;
+
+    background: @accent;
+    color: @accent_text;
+    border-radius: 10px;
 }
 
+button:hover {
+    background: @accent_hover;
+}
+
+/* Pressed state (since :checked usually won't apply here) */
+button:active {
+    filter: brightness(0.92);
+}
+
+/* =========================================================
+ * Do Not Disturb switch (GtkSwitch)
+ * ========================================================= */
+switch {
+    background: @cc_track; /* OFF track */
+    border-radius: 999px;
+    border: 2px solid @cc_track;
+}
+
+switch slider {
+    background: @cc_fg; /* knob */
+    border-radius: 999px;
+}
+
+switch:checked {
+    background: @accent;   /* ON track */
+    border: 2px solid @accent;
+}
+
+switch:checked slider {
+    background: @accent_text; /* dark knob on blue */
+    border-radius: 999px;
+}
+
+/* =========================================================
+ * Volume Slider (GtkScale)
+ * ========================================================= */
+scale trough {
+    background: @cc_track; /* visible track */
+    border-radius: 999px;
+    min-height: 8px;
+}
+
+scale highlight {
+    background: @accent;   /* filled portion */
+    border-radius: 999px;
+}
+
+scale slider {
+    background: @cc_fg;    /* knob */
+    border-radius: 999px;
+    min-width: 14px;
+    min-height: 14px;
+    border: 2px solid @accent; /* match accent */
+}
+
+/* =========================================================
+ * Headers / spacing
+ * ========================================================= */
 .notification-group-header {
     font-size: 14px;
+    color: @cc_muted;
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button {
-    margin:5px;
+    margin: 5px;
 }
 
-/* Notification */
-
+/* =========================================================
+ * Notification cards (popup + center list)
+ * ========================================================= */
 .notification {
-    border: 3px solid @bordercolor;
-	border-radius: 10px;
-    padding:10px;
+    background: @cc_card;
+    border: 2px solid rgba(137, 180, 250, 0.65); /* softer blue outline */
+    border-radius: 16px;
+    padding: 10px;
+    color: @cc_fg;
 }
 
 .notification-default-action:hover,
@@ -46,3 +131,4 @@ button {
     color: #ffffff;
     background: transparent;
 }
+
