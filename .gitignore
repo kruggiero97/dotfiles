@@ -1,0 +1,27 @@
+*.log
+*.tmp
+*.bak
+.cache/
+__pycache__/
+*.pyc
+# Waybar / ML4W leftovers=
+.config/ml4w/
+.config/waybar/themes/**/assets/
+.config/hypr/logs/
+.config/hypr/*.lock
+.config/nvim/.git/
+.config/nvim/.cache/
+.config/nvim/lazy-lock.json
+.config/nvim/plugin/packer_compiled.lua
+.cache/wal/
+*.key
+*.pem
+*.env
+.env
+.env.*
+.config/pulse/
+.config/bluetooth/
+.config/NetworkManager/
+
+# Keep Neovim as its own repo
+.config/nvim/
