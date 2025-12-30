@@ -10,7 +10,7 @@ case "$MID" in
   ln -sf "$MONDIR/mbp_monitor_variation.conf" "$MONDIR/current.conf"
   ;;
 # Desktop machine-id
-"DESKTOP_MACHINE_ID_HERE")
+"697769973ba3408c861c7e5a48aece59")
   ln -sf "$MONDIR/my_monitor_variation.conf" "$MONDIR/current.conf"
   ;;
 *)
