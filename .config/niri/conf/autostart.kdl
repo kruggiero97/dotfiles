@@ -1,0 +1,28 @@
+// -----------------------------------------------------
+// Autostart
+// -----------------------------------------------------
+
+// Pick the correct monitor layout for this machine
+spawn-sh-at-startup "~/.config/niri/scripts/select-monitors.sh"
+
+// Start wallpaper / waybar
+spawn-sh-at-startup "~/.config/waybar/launch.sh"
+spawn-at-startup "swww-daemon"
+
+// Polkit agent
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+
+// Notification daemon
+spawn-at-startup "swaync"
+
+// Keyboard layout notifications
+spawn-sh-at-startup "~/.config/niri/scripts/kb-layout-watch.sh"
+
+// GTK settings
+spawn-sh-at-startup "~/.config/niri/scripts/gtk.sh"
+
+// Idle / lock (replace hypridle with swayidle if needed)
+spawn-sh-at-startup "~/.config/niri/scripts/swayidle.sh"
+
+// Clipboard history (only spawn one)
+spawn-sh-at-startup "pkill -f 'wl-paste --watch cliphist store' >/dev/null 2>&1 || true; wl-paste --watch cliphist store"

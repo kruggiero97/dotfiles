@@ -1,0 +1,45 @@
+{
+  // General Settings
+  "layer": "top",
+  "margin-top": 14,
+  "margin-bottom": 0,
+  "margin-left": 14,
+  "margin-right": 14,
+  "spacing": 0,
+
+  // Load Modules
+  "include": [
+    "~/.config/khloe/settings/waybar-quicklinks.json",
+    "~/.config/waybar/modules.json"
+  ],
+
+  // Modules Left
+  "modules-left": [
+    "custom/appmenu",
+    "group/links",
+    "wlr/taskbar",
+    "group/quicklinks",
+    "custom/empty"
+  ],
+
+  // Modules Center
+  "modules-center": [
+    "niri/workspaces"
+  ],
+
+  // Modules Right
+  "modules-right": [
+    "custom/updates",
+    "pulseaudio",
+    "bluetooth",
+    "battery",
+    "power-profiles-daemon",
+    "group/hardware",
+    "group/tools-niri",
+    "tray",
+    "keyboard-state",
+    "custom/notification",
+    "custom/exit-niri",
+    "clock"
+  ]
+}

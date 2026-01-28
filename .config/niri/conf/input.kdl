@@ -1,0 +1,20 @@
+input {
+  keyboard {
+    xkb {
+      layout "us,us"
+      variant ",intl"
+      options "grp:alt_shift_toggle"
+    }
+
+    numlock
+  }
+
+  touchpad {
+    tap
+    // natural-scroll   // uncomment to enable; omit to disable
+    scroll-factor 1.0
+  }
+
+  mouse {
+  }
+}
