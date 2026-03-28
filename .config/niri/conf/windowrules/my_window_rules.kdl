@@ -32,12 +32,8 @@ window-rule {
 window-rule {
   match title=r#"^Picture-in-Picture|Picture in picture$"#
   open-floating true
-
-  // size (example PiP size)
   default-column-width { fixed 480; }
   default-window-height { fixed 270; }
-
-  // position near top-right with a small gap
   default-floating-position x=17 y=55 relative-to="top-right"
 }
 
@@ -78,9 +74,10 @@ window-rule {
   default-window-height { fixed 800; }
 }
 
-// Open on specific workspace
+// Open on specific workspace, exclude PiP
 window-rule {
   match app-id=r#"^(brave-browser|zen|librewolf)$"#
+  exclude title=r#"^Picture-in-Picture|Picture in picture$"#
   open-on-workspace "browser"
 }
 
