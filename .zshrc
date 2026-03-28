@@ -5,24 +5,19 @@
 # (_)___|___/_| |_|_|  \___|
 #
 # -----------------------------------------------------
-# ML4W zshrc loader
+# Modular zshrc loader
 # -----------------------------------------------------
-
-# DON'T CHANGE THIS FILE
-
-# You can define your custom configuration by adding
-# files in ~/.config/zshrc
-# or by creating a folder ~/.config/zshrc/custom
-# with copies of files from ~/.config/zshrc
+# Loads configuration from ~/.config/zshrc/*
+# Allows overrides in ~/.config/zshrc/custom
 # -----------------------------------------------------
 
 # -----------------------------------------------------
 # Load modular configuration
 # -----------------------------------------------------
 
-for f in ~/.config/zshrc/*; do
+for f in ~/.config/khloe-zsh/*; do
     if [ ! -d $f ]; then
-        c=`echo $f | sed -e "s=.config/zshrc=.config/zshrc/custom="`
+        c=`echo $f | sed -e "s=.config/khloe-zsh=.config/khloe-zsh/custom="`
         [[ -f $c ]] && source $c || source $f
     fi
 done
