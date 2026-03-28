@@ -6,13 +6,13 @@
 #                /_/       /_/
 
 # Source library.sh
-source $HOME/.config/ml4w/library.sh
+source $HOME/.config/khloe/library.sh
 
 # -----------------------------------------------------
 # Check to use wallpaper cache
 # -----------------------------------------------------
 
-if [ -f ~/.config/ml4w/settings/wallpaper_cache ]; then
+if [ -f ~/.config/khloe/settings/wallpaper_cache ]; then
   use_cache=1
   _writeLog "Using Wallpaper Cache"
 else
@@ -23,7 +23,7 @@ fi
 # -----------------------------------------------------
 # Create cache folder
 # -----------------------------------------------------
-ml4w_cache_folder="$HOME/.cache/ml4w/hyprland-dotfiles"
+ml4w_cache_folder="$HOME/.cache/khloe/hyprland-dotfiles"
 
 if [ ! -d $ml4w_cache_folder ]; then
   mkdir -p $ml4w_cache_folder
@@ -52,9 +52,9 @@ cachefile="$ml4w_cache_folder/current_wallpaper"
 blurredwallpaper="$ml4w_cache_folder/blurred_wallpaper.png"
 squarewallpaper="$ml4w_cache_folder/square_wallpaper.png"
 rasifile="$ml4w_cache_folder/current_wallpaper.rasi"
-blurfile="$HOME/.config/ml4w/settings/blur.sh"
-defaultwallpaper="$HOME/.config/ml4w/wallpapers/default.jpg"
-wallpapereffect="$HOME/.config/ml4w/settings/wallpaper-effect.sh"
+blurfile="$HOME/.config/khloe/settings/blur.sh"
+defaultwallpaper="$HOME/.config/khloe/wallpapers/default.jpg"
+wallpapereffect="$HOME/.config/khloe/settings/wallpaper-effect.sh"
 blur="50x30"
 blur=$(cat $blurfile)
 
