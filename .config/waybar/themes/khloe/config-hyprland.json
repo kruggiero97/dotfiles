@@ -38,12 +38,12 @@
         "battery", 
         "power-profiles-daemon",
         "group/hardware",
-        "group/tools",
+        "group/tools-hyprland",
 "tray",
         
         "keyboard-state",
         "custom/notification",
-        "custom/exit",
+        "custom/exit-hyprland",
         "clock"
     ]
 }

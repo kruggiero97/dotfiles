@@ -6,7 +6,7 @@
 //
 //
 {
-  // Workspaces
+  // Hyprland Workspaces
   "hyprland/workspaces": {
     "on-scroll-up": "hyprctl dispatch workspace r-1",
     "on-scroll-down": "hyprctl dispatch workspace r+1",
@@ -22,6 +22,11 @@
     "persistent-workspaces": {
       "*": 5
     }
+  },
+  // Niri Workspaces
+  "niri/workspaces": {
+    "format": "{index}",
+    "on-click": "activate"
   },
 
   // Taskbar
@@ -142,12 +147,19 @@
   },
 
   // Power Menu
-  "custom/exit": {
+  "custom/exit-hyprland": {
     "format": "",
     "on-click": "~/.config/khloe/scripts/wlogout.sh",
     "on-click-right": "hyprlock",
     "tooltip-format": "Left: Power menu\nRight: Lock screen"
   },
+  "custom/exit-niri": {
+    "format": "",
+    "on-click": "~/.config/khloe/scripts/wlogout.sh",
+    "on-click-right": "~/.config/niri/scripts/lock.sh",
+    "tooltip-format": "Left: Power menu\nRight: Lock screen"
+  },
+
 
   // SwayNC
   "custom/notification": {
@@ -193,6 +205,19 @@
     "signal": 8,
     "exec": "~/.config/hypr/scripts/hypridle.sh status",
     "on-click": "~/.config/hypr/scripts/hypridle.sh toggle"
+  },
+
+  // Swayidle inhibitor
+  "custom/swayidle": {
+    "format": "",
+    "return-type": "json",
+    "escape": true,
+    "exec-on-event": true,
+    "interval": 60,
+    "signal": 8,
+    "exec": "~/.config/niri/scripts/swayidle.sh status",
+    "on-click": "~/.config/niri/scripts/swayidle.sh toggle",
+    "on-click-right": "loginctl lock-session",
   },
 
   // Keyboard State
@@ -262,7 +287,7 @@
   },
 
   // Group Tools
-  "group/tools": {
+  "group/tools-hyprland": {
     "orientation": "inherit",
     "drawer": {
       "transition-duration": 300,
@@ -274,6 +299,19 @@
       "custom/cliphist",
       "custom/hypridle",
       "custom/hyprshade"
+    ]
+  },
+  "group/tools-niri": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 300,
+      "children-class": "not-memory",
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "custom/tools",
+      "custom/cliphist",
+      "custom/swayidle"
     ]
   },
 

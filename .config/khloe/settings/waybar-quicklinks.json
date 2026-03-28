@@ -6,12 +6,12 @@
     }, 
     "custom/quicklink2": {
         "format": "",
-        "on-click": "~/.config/ml4w/settings/browser.sh",
+        "on-click": "~/.config/khloe/settings/browser.sh",
         "tooltip-format": "Open Browser"
     },
     "custom/quicklink3": {
         "format": "",
-        "on-click": "~/.config/ml4w/settings/filemanager.sh",
+        "on-click": "~/.config/khloe/settings/filemanager.sh",
         "tooltip-format": "Open filemanager"
     }, 
     "custom/quicklink4": {
@@ -21,12 +21,12 @@
     }, 
     "custom/quicklink5": {
         "format": "",
-        "on-click": "~/.config/ml4w/settings/calculator.sh",
+        "on-click": "~/.config/khloe/settings/calculator.sh",
         "tooltip-format": "Open calculator"
     }, 
     "custom/quicklink6": {
         "format": "",
-        "on-click": "~/.config/ml4w/settings/emojipicker.sh",
+        "on-click": "~/.config/khloe/settings/emojipicker.sh",
         "tooltip-format": "Open emoji picker"
     }, 
     "custom/quicklinkempty": {
@@ -34,11 +34,12 @@
     "group/quicklinks": {
         "orientation": "horizontal",
         "modules": [
+            // "custom/quicklink1",
             "custom/quicklink2",
             "custom/quicklink3",
-            /*
             "custom/quicklink4",
-            */
+            "custom/quicklink5",
+            "custom/quicklink6",
             "custom/quicklinkempty"
         ]
     }
