@@ -1,0 +1,11 @@
+workspace "browser" {
+  open-on-output "HDMI-A-2"
+}
+
+workspace "social" {
+  open-on-output "HDMI-A-2"
+}
+
+workspace "game" {
+  open-on-output "DP-2"
+}
