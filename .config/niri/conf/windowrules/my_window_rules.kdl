@@ -74,7 +74,7 @@ window-rule {
   default-window-height { fixed 800; }
 }
 
-// Open on specific workspace, exclude PiP
+// Open on specific workspace, exclude PiP TEST
 window-rule {
   match app-id=r#"^(brave-browser|zen|librewolf)$"#
   exclude title=r#"^Picture-in-Picture|Picture in picture$"#
