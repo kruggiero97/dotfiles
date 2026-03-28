@@ -40,6 +40,8 @@
         "group/hardware",
         "group/tools",
 "tray",
+        
+        "keyboard-state",
         "custom/notification",
         "custom/exit",
         "clock"
