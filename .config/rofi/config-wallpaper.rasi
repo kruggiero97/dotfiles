@@ -9,6 +9,8 @@ configuration {
     drun-display-format:        "{name}";
     window-format:              "{w} · {c} · {t}";
     scroll-method:              1;
+    kb-custom-1:                "Alt+f";
+    kb-move-word-forward:       "Control+Right";
 }
 
 /* -----------------------------------------------------
