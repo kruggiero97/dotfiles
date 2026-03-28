@@ -14,3 +14,25 @@
 @define-color iconcolor  #cdd6f4; /* text */
 
 @import '../style.css';
+#custom-updates {
+  background-color: @backgroundlight; /* keep same base */
+  color: @textcolor2;
+}
+
+/* ok */
+#custom-updates.green {
+  background-color: #313244; /* surface0 */
+  color: #a6e3a1;            /* green */
+}
+
+/* warning */
+#custom-updates.yellow {
+  background-color: #f9e2af; /* yellow */
+  color: #1e1e2e;            /* base text for contrast */
+}
+
+/* urgent */
+#custom-updates.red {
+  background-color: #f38ba8; /* red */
+  color: #1e1e2e;            /* base text for contrast */
+}
