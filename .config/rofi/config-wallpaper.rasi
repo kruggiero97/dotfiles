@@ -1,269 +1,272 @@
-/*
-#  ____        __ _  
-# |  _ \ ___  / _(_) 
-# | |_) / _ \| |_| | 
-# |  _ < (_) |  _| | 
-# |_| \_\___/|_| |_| 
-#                    
-# by Stephan Raabe (2023) 
-# ----------------------------------------------------- 
-*/
-
-/* ---- Configuration ---- */
+//* ---- Configuration ---- */
 configuration {
     modi:                       "drun,run";
     font:                       "Fira Sans 11";
     show-icons:                 true;
-	hover-select:               false;
+    hover-select:               false;
     me-select-entry:            "";
     me-accept-entry:            "MousePrimary";
     drun-display-format:        "{name}";
     window-format:              "{w} · {c} · {t}";
-    scroll-method: 1;
+    scroll-method:              1;
 }
 
-/* ---- Load font ---- */
-@import "~/.config/ml4w/settings/rofi-font.rasi"
+/* -----------------------------------------------------
+ * Catppuccin Mocha variables (replaces ML4W + pywal)
+ * ----------------------------------------------------- */
+* {
+    /* Catppuccin Mocha */
+    base:                       #1e1e2e;
+    surface0:                   #313244;
+    surface1:                   #45475a;
+    text:                       #cdd6f4;
+    subtext1:                   #bac2de;
+    mauve:                      #cba6f7;
 
-/* ---- Load pywal colors (custom wal template) ---- */
-@import "~/.cache/wal/colors-rofi-pywal"
+    /* Variables used by the rest of this config */
+    background:                 rgba(30, 30, 46, 0.55);  /* base w/ transparency */
+    foreground:                 @text;
+    color11:                    @mauve;                 /* keep old name */
+    border-width:               2px;
 
-/* ---- Load wallpaper ---- */
-@import "~/.config/ml4w/cache/current_wallpaper.rasi"
-
-/* ---- Load border width ---- */
-@import "~/.config/ml4w/settings/rofi-border.rasi"
+    /* Current wallpaper background (canonical path) */
+    current-wallpaper:          url("~/.config/wallpaper/current.png", width);
+}
 
 /* ---- Window ---- */
 window {
-    width:                        761px;
-    x-offset:                     0px;
-    y-offset:                     65px;
-    spacing:                      0px;
-    padding:                      0px;
-    margin:                       0px; 
-    color:                        #FFFFFF;
-    border:                       @border-width;
-    border-color:                 #FFFFFF;
-    cursor:                       "default";
-    transparency:                 "real";
-    location:                     north;
-    anchor:                       north;
-    fullscreen:                   false;
-    enabled:                      true;
-    border-radius:                10px;
-    background-color:             transparent;
+    width:                      761px;
+    x-offset:                   0px;
+    y-offset:                   65px;
+    spacing:                    0px;
+    padding:                    0px;
+    margin:                     0px;
+
+    color:                      @foreground;
+    border:                     @border-width;
+    border-color:               @mauve;
+
+    cursor:                     "default";
+    transparency:               "real";
+    location:                   north;
+    anchor:                     north;
+    fullscreen:                 false;
+    enabled:                    true;
+    border-radius:              10px;
+
+    background-image:           @current-wallpaper;
+    background-color:           transparent;
 }
 
 /* ---- Mainbox ---- */
 mainbox {
-    enabled:                      true;
-    orientation:                  horizontal;
-    spacing:                      0px;
-    margin:                       0px;
-    background-color:             @background;
-    children:                     ["listbox"];
+    enabled:                    true;
+    orientation:                horizontal;
+    spacing:                    0px;
+    margin:                     0px;
+    background-color:           @background;
+    children:                   ["listbox"];
 }
 
 /* ---- Imagebox ---- */
 imagebox {
-    padding:                      18px;
-    background-color:             transparent;
-    orientation:                  vertical;
-    children:                     [ "inputbar", "dummy", "mode-switcher" ];
+    padding:                    18px;
+    background-color:           transparent;
+    orientation:                vertical;
+    children:                   [ "inputbar", "dummy", "mode-switcher" ];
 }
 
 /* ---- Listbox ---- */
 listbox {
-    spacing:                     20px;
-    background-color:            transparent;
-    orientation:                 vertical;
-    children:                    [ "inputbar", "message", "listview" ];
+    spacing:                    20px;
+    background-color:           transparent;
+    orientation:                vertical;
+    children:                   [ "inputbar", "message", "listview" ];
 }
 
 /* ---- Dummy ---- */
 dummy {
-    background-color:            transparent;
+    background-color:           transparent;
 }
 
 /* ---- Inputbar ---- */
 inputbar {
-    enabled:                      true;
-    text-color:                   @foreground;
-    spacing:                      10px;
-    padding:                      15px;
-    border-radius:                0px;
-    border-color:                 @foreground;
-    background-color:             @background;
-    children:                     [ "textbox-prompt-colon", "entry" ];
+    enabled:                    true;
+    text-color:                 @foreground;
+    spacing:                    10px;
+    padding:                    15px;
+    border-radius:              0px;
+    border-color:               @foreground;
+    background-color:           @background;
+    children:                   [ "textbox-prompt-colon", "entry" ];
 }
 
 textbox-prompt-colon {
-    enabled:                      true;
-    expand:                       false;
-    padding:                      0px 5px 0px 0px;
-    str:                          "";
-    background-color:             transparent;
-    text-color:                   inherit;
+    enabled:                    true;
+    expand:                     false;
+    padding:                    0px 5px 0px 0px;
+    str:                        "";
+    background-color:           transparent;
+    text-color:                 inherit;
 }
 
 entry {
-    enabled:                      true;
-    background-color:             transparent;
-    text-color:                   inherit;
-    cursor:                       text;
-    placeholder:                  "Search";
-    placeholder-color:            inherit;
+    enabled:                    true;
+    background-color:           transparent;
+    text-color:                 inherit;
+    cursor:                     text;
+    placeholder:                "Search";
+    placeholder-color:          @subtext1;
 }
 
 /* ---- Mode Switcher ---- */
 mode-switcher{
-    enabled:                      true;
-    spacing:                      20px;
-    background-color:             transparent;
-    text-color:                   @foreground;
+    enabled:                    true;
+    spacing:                    20px;
+    background-color:           transparent;
+    text-color:                 @foreground;
 }
 
 button {
-    padding:                      10px;
-    border-radius:                10px;
-    background-color:             @background;
-    text-color:                   inherit;
-    cursor:                       pointer;
-    border:                       0px;
+    padding:                    10px;
+    border-radius:              10px;
+    background-color:           @background;
+    text-color:                 inherit;
+    cursor:                     pointer;
+    border:                     0px;
 }
 
 button selected {
-    background-color:             @color11;
-    text-color:                   @foreground;
+    background-color:           rgba(203, 166, 247, 0.25); /* mauve tint */
+    text-color:                 @foreground;
 }
 
 /* ---- Listview ---- */
 listview {
-    enabled:                      true;
-    columns:                      6;
-    lines:                        3;
-    cycle:                        false;
-    dynamic:                      false;
-    scrollbar:                    true;
-    layout:                       vertical;
-    reverse:                      false;
-    spacing:                      10px;
-    padding:                      10px;
-    margin:                       0px;
-    fixed-height:                 true;
-    fixed-columns:                true;    
-    background-color:             @background;
-    border:                       0px;
-    flow:                         horizontal;      
+    enabled:                    true;
+    columns:                    3;
+    lines:                      2;
+    cycle:                      false;
+    dynamic:                    false;
+    scrollbar:                  true;
+    layout:                     vertical;
+    reverse:                    false;
+    spacing:                    10px;
+    padding:                    10px;
+    margin:                     0px;
+    fixed-height:               true;
+    fixed-columns:              true;
+    background-color:           @background;
+    border:                     0px;
+    flow:                       horizontal;
 }
 
 /* ---- Element ---- */
 element {
-    enabled:                      true;
-    padding:                      0px;
-    margin:                       5px;
-    cursor:                       pointer;
-    background-color:             @background;
-    border-radius:                10px;
-    border:                       @border-width;
-    orientation:                  vertical;
+    enabled:                    true;
+    padding:                    10px;
+    margin:                     6px;
+    cursor:                     pointer;
+    background-color:           rgba(49, 50, 68, 0.88); /* surface0 */
+    border-radius:              10px;
+    border:                     @border-width;
+    orientation:                vertical;
 }
 
 element normal.normal {
-    border-color:                @color11;
-    background-color:            inherit;
-    text-color:                  @foreground;
+    border-color:               rgba(69, 71, 90, 0.90); /* surface1 */
+    background-color:           inherit;
+    text-color:                 @foreground;
 }
 
 element normal.urgent {
-    border-color:                @color11;
-    background-color:            inherit;
-    text-color:                  @foreground;
+    border-color:               rgba(69, 71, 90, 0.90);
+    background-color:           inherit;
+    text-color:                 @foreground;
 }
 
 element normal.active {
-    border-color:                @color11;
-    background-color:            inherit;
-    text-color:                  @foreground;
+    border-color:               rgba(69, 71, 90, 0.90);
+    background-color:           inherit;
+    text-color:                 @foreground;
 }
 
 element selected.normal {
-    border-color:                @foreground;
-    background-color:            inherit;
-    text-color:                  @foreground;
+    border-color:               @mauve;
+    background-color:           rgba(203, 166, 247, 0.20);
+    text-color:                 @foreground;
 }
 
 element selected.urgent {
-    border-color:                @foreground;
-    background-color:            inherit;
-    text-color:                  @foreground;
+    border-color:               @mauve;
+    background-color:           rgba(203, 166, 247, 0.20);
+    text-color:                 @foreground;
 }
 
 element selected.active {
-    border-color:                @foreground;
-    background-color:            inherit;
-    text-color:                  @foreground;
+    border-color:               @mauve;
+    background-color:           rgba(203, 166, 247, 0.20);
+    text-color:                 @foreground;
 }
 
 element alternate.normal {
-    border-color:                @color11;
-    background-color:            inherit;
-    text-color:                  @foreground;
+    border-color:               rgba(69, 71, 90, 0.90);
+    background-color:           inherit;
+    text-color:                 @foreground;
 }
 
 element alternate.urgent {
-    border-color:                @color11;
-    background-color:            inherit;
-    text-color:                  @foreground;
+    border-color:               rgba(69, 71, 90, 0.90);
+    background-color:           inherit;
+    text-color:                 @foreground;
 }
 
 element alternate.active {
-    border-color:                @color11;
-    background-color:            inherit;
-    text-color:                  @foreground;
+    border-color:               rgba(69, 71, 90, 0.90);
+    background-color:           inherit;
+    text-color:                 @foreground;
 }
 
 element-icon {
-    background-color:            transparent;
-    text-color:                  inherit;
-    size:                        100px;
-    cursor:                      inherit;
-    horizontal-align:              0.5;
+    background-color:           transparent;
+    text-color:                 inherit;
+    size:                       160px;
+    cursor:                     inherit;
+    horizontal-align:           0.5;
 }
 
 element-text {
-    background-color:            transparent;
-    text-color:                  inherit;
-    cursor:                      inherit;
-    vertical-align:              0.5;
-    horizontal-align:            0.1;
-    enabled: false;
+    enabled:          true;
+    font:             "Fira Sans 10";
+    horizontal-align: 0.5;
+    vertical-align:   1.0;
+    margin:           6px 0px 0px 0px;
+    text-color:       @subtext1;
 }
 
 /*****----- Message -----*****/
 message {
-    background-color:            transparent;
-    border:0px;
-    margin:20px 0px 0px 0px;
-    padding:0px;
-    spacing:0px;
-    border-radius: 10px;
+    background-color:           transparent;
+    border:                     0px;
+    margin:                     20px 0px 0px 0px;
+    padding:                    0px;
+    spacing:                    0px;
+    border-radius:              10px;
 }
 
 textbox {
-    padding:                     15px;
-    margin:                      0px;
-    border-radius:               0px;
-    background-color:            @background;
-    text-color:                  @foreground;
-    vertical-align:              0.5;
-    horizontal-align:            0.0;
+    padding:                    15px;
+    margin:                     0px;
+    border-radius:              0px;
+    background-color:           @background;
+    text-color:                 @foreground;
+    vertical-align:             0.5;
+    horizontal-align:           0.0;
 }
 
 error-message {
-    padding:                     15px;
-    border-radius:               20px;
-    background-color:            @background;
-    text-color:                  @foreground;
+    padding:                    15px;
+    border-radius:              20px;
+    background-color:           @background;
+    text-color:                 @foreground;
 }
