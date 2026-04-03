@@ -38,7 +38,7 @@ window-rule {
   default-column-width { fixed 1300; }
   default-window-height { fixed 875; }
 }
-// test
+
 // Browser Picture in Picture
 window-rule {
   match title=r#"^Picture-in-Picture|Picture in picture$"#
