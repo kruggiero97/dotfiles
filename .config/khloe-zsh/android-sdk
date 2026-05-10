@@ -1,0 +1,5 @@
+# Android SDK environment (container only)
+if [ -f /run/.containerenv ]; then
+    export ANDROID_HOME=$HOME/android-sdk
+    export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools
+fi
