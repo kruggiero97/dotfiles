@@ -1,5 +1,6 @@
 input {
-  focus-follows-mouse
+  focus-follows-mouse max-scroll-amount="50%"
+  warp-mouse-to-focus
   keyboard {
     xkb {
       layout "us,us"
