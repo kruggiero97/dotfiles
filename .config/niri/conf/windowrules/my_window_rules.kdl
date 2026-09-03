@@ -98,6 +98,19 @@ window-rule {
   open-on-workspace "game"
 }
 
+// Open steam games in game workspace
+window-rule {
+  match app-id=r#"^steam_app_"#
+  open-on-workspace "game"
+  open-fullscreen true
+}
+
+// Enable VRR for steam games
+window-rule {
+  match app-id=r#"^steam_app_"#
+  variable-refresh-rate true
+}
+
 // Global window rules
 window-rule {
   draw-border-with-background false

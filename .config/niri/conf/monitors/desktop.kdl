@@ -10,4 +10,5 @@ output "DP-2" {
     scale 1
     transform "normal"
     position x=2560 y=0
+    variable-refresh-rate on-demand=true
 }
