@@ -12,4 +12,4 @@ fi
 # -----------------------------------------------------
 # SSH agent
 # -----------------------------------------------------
-eval "$(keychain --eval --quiet id_ed25519)"
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
