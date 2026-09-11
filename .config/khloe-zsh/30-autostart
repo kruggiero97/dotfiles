@@ -8,3 +8,8 @@
 if [[ $(tty) == *"pts"* ]]; then
     fastfetch --config ~/.config/fastfetch/terminal-header.jsonc
 fi
+
+# -----------------------------------------------------
+# SSH agent
+# -----------------------------------------------------
+eval "$(keychain --eval --quiet id_ed25519)"
