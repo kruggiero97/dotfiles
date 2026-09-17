@@ -1,7 +1,3 @@
-# -----------------------------------------------------
-# Functions
-# -----------------------------------------------------
-
 # Install a WoW addon zip into the Forever beta client
 wowaddon() {
   local dest="/media/2TBDrive/Games/Blizzard/World of Warcraft/_classic_beta_/Interface/AddOns"
