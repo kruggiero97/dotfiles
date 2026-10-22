@@ -105,6 +105,12 @@ window-rule {
   open-fullscreen true
 }
 
+// float battle.net
+window-rule {
+  match app-id=r#"^steam_app_2314350256$"# title=r#"^Battle\.net"#
+  open-fullscreen false
+}
+
 // Enable VRR for steam games
 window-rule {
   match app-id=r#"^steam_app_"#
